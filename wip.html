@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenSlate - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wip-section {
+            flex-grow: 1;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle animated background */
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, #8080800a 1px, transparent 1px),
+                linear-gradient(to bottom, #8080800a 1px, transparent 1px);
+            background-size: 24px 24px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+            z-index: 0;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .coffee-icon {
+            width: 100%;
+            height: 100%;
+            color: #F97316;
+            opacity: 0.9;
+        }
+
+        /* Steam animation */
+        .steam {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            width: 8px;
+            height: 20px;
+            background: #F97316;
+            border-radius: 4px;
+            animation: steam 2s infinite;
+            opacity: 0;
+        }
+
+        .steam:nth-child(2) {
+            right: 25px;
+            animation-delay: 0.4s;
+        }
+
+        .steam:nth-child(3) {
+            right: 35px;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes steam {
+            0% {
+                transform: translateY(0) scaleX(1);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-15px) scaleX(1.5);
+                opacity: 0.5;
+            }
+
+            95% {
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-20px) scaleX(2);
+                opacity: 0;
+            }
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #F97316, #FB923C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            margin-top: 4rem;
+            padding: 4rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-description {
+            color: #94a3b8;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #F97316;
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            background: #EA580C;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="wip-section">
+        <div class="bg-grid"></div>
+        <div class="content-container">
+            <div class="icon-container">
+                <div class="steam"></div>
+                <div class="steam"></div>
+                <div class="steam"></div>
+                <svg class="coffee-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M2 21v-2h18v2H2zM4 17V8h12v9c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2zM20 8h-2v7h2c.6 0 1-.4 1-1v-5c0-.6-.4-1-1-1z" />
+                </svg>
+            </div>
+
+            <h1 class="title">We're working on something great!</h1>
+            <p class="description">Why not grab a coffee while you wait?</p>
+
+            <a href="/" class="home-button">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+            </a>
+
+            <div class="team-section">
+                <h2 class="team-title">Meet the Team Building OpenSlate</h2>
+                <p class="team-description">
+                    While this page is under construction, we want you to know the faces behind OpenSlate.
+                    We're a team of experienced developers and entrepreneurs committed to making AI workflows
+                    accessible to everyone. Each line of code we write is crafted with your success in mind.
+                </p>
+
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-card">
+                        <div class="member-avatar">
+                            <img src="./assets/images/team/harish.jpg" alt="Harish Neel" />
+                        </div>
+                        <h3 class="member-name">Harish Neel</h3>
+                        <p class="member-role">Founder & CEO</p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card">
+                        <div class="member-avatar">
+                            <img src="./assets/images/team/arun.jpg" alt="Arun Prasad" />
+                        </div>
+                        <h3 class="member-name">Arun Prasad</h3>
+                        <p class="member-role">Chief Architect</p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card">
+                        <div class="member-avatar">
+                            <img src="./assets/images/team/nag.jpeg" alt="Nag Ashish" />
+                        </div>
+                        <h3 class="member-name">Nag Ashish</h3>
+                        <p class="member-role">Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
