@@ -1010,6 +1010,140 @@
                 transform: translateY(-5px);
             }
         }
+
+        .features-section {
+            background: linear-gradient(180deg, #0A0F1E 0%, #141B2D 100%);
+            padding: 8rem 2rem;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Fancy background effect */
+        .features-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(23, 29, 45, 0.7);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(59, 130, 246, 0.03) 40%,
+                    rgba(139, 92, 246, 0.03) 60%,
+                    transparent);
+            transform: translateY(100%) rotate(45deg);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.2);
+            box-shadow:
+                0 20px 40px -20px rgba(0, 0, 0, 0.3),
+                0 0 20px 0 rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-card:hover::before {
+            transform: translateY(0) rotate(45deg);
+        }
+
+        .icon-container {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            transform: rotate(-10deg);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .icon-bg {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        .feature-icon {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            color: #60A5FA;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            color: #93C5FD;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #E5E7EB);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature-description {
+            color: #94A3B8;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1255,6 +1389,107 @@
   name: <span class="code-string">'search'</span>,
   provider: <span class="code-string">'neural-search'</span>
 });</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features-section">
+        <div class="features-bg"></div>
+        <div class="container">
+            <div class="features-grid">
+                <!-- Security Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Security</h3>
+                    <p class="feature-description">
+                        Enterprise-grade security features with end-to-end encryption and advanced access controls.
+                    </p>
+                </div>
+
+                <!-- Scalability Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Scalability</h3>
+                    <p class="feature-description">
+                        Scale seamlessly from startup to enterprise with our flexible infrastructure.
+                    </p>
+                </div>
+
+                <!-- Support Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Support</h3>
+                    <p class="feature-description">
+                        24/7 expert support with dedicated account managers for enterprise clients.
+                    </p>
+                </div>
+
+                <!-- Activity Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Activity</h3>
+                    <p class="feature-description">
+                        Real-time analytics and insights with advanced monitoring capabilities.
+                    </p>
+                </div>
+
+                <!-- Uptime Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Uptime</h3>
+                    <p class="feature-description">
+                        99.99% uptime guarantee with automatic failover and redundancy.
+                    </p>
+                </div>
+
+                <!-- Compliance Card -->
+                <div class="feature-card">
+                    <div class="icon-container">
+                        <div class="icon-bg"></div>
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Compliance</h3>
+                    <p class="feature-description">
+                        Full GDPR and SOC 2 compliance with regular security audits.
+                    </p>
                 </div>
             </div>
         </div>
