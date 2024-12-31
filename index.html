@@ -1296,47 +1296,67 @@
             max-width: 320px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            /* margin-bottom: 1.5rem; */
+        .wordmark {
             text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
             position: relative;
         }
 
-        .logo-circle {
-            position: absolute;
-            inset: 0;
-            border: 2px solid #3b82f6;
-            border-radius: 50%;
+        .word-start,
+        .word-end {
+            color: #fff;
+            font-weight: 400;
+            opacity: 0.9;
+            transition: all 0.3s ease;
         }
 
-        .logo-inner {
-            position: absolute;
-            inset: 4px;
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        .dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 14px;
+            margin-left: 2px;
+            vertical-align: super;
+            position: relative;
+            top: -2px;
         }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .connector {
+            display: inline-block;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(to right, #3B82F6, #8B5CF6);
+            position: relative;
+            vertical-align: middle;
+            margin: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .wordmark:hover .connector {
+            width: 2em;
+            margin: 0 0.4em;
+            opacity: 1;
+        }
+
+        .wordmark:hover .dot {
+            transform: scale(1.2);
+        }
+
+        .wordmark:hover .word-start,
+        .wordmark:hover .word-end {
+            opacity: 1;
+        }
+
+        .wordmark:hover .word-start {
+            color: #60A5FA;
+        }
+
+        .wordmark:hover .word-end {
+            color: #A78BFA;
         }
 
         .footer-description {
@@ -1986,12 +2006,9 @@
         <div class="footer-container">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <a href="/" class="logo">
-                        <div class="logo-icon">
-                            <div class="logo-circle"></div>
-                            <div class="logo-inner">OS</div>
-                        </div>
-                        <span class="logo-text">openslate</span>
+                    <a href="/" class="wordmark">
+                        <span class="word-start">open<span class="dot"></span></span><span
+                            class="connector"></span><span class="word-end">slate</span>
                     </a>
                     <p class="footer-description">
                         Build and deploy production-ready AI agents powered by the latest language models.
